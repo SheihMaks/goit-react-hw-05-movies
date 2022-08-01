@@ -3,6 +3,7 @@ import { useState,useEffect,} from "react";
 import {useParams } from "react-router-dom";
 import * as MoviesService from 'Service/API';
 import {AdditionalInfo} from './AdditionalInfo/AdditionalInfo';
+import {GoBackLink} from 'components/GoBackLink/GoBackLink';
 import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popularity,HeaderAbout,Overview,GenresContainer,} from "./SelectedMovie.styled";
 export const SelectedMovie=()=>{
     // const params=useParams()
@@ -26,7 +27,9 @@ const getGenres=(movie)=>{
     movie.genres.map((genre)=>{return setGenres((prev)=>{return [...prev,genre.name]})})
  }
 
-    return(<><ContainerMovie>
+    return(<>
+    <GoBackLink/>
+    <ContainerMovie>
         <PosterContainer>
             <PosterMovie src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
             </PosterContainer>

@@ -2,7 +2,7 @@ import {Outlet} from 'react-router-dom';
 import  {Header}  from './HeaderApp/Header';
 import { Container } from 'components/ContainerApp/Container.styled'
 
- const Layot=()=>{
+export const Layout=()=>{
     return(
         <><Header/>
         <Container>
@@ -10,5 +10,3 @@ import { Container } from 'components/ContainerApp/Container.styled'
             </Container></>
     )
 }
-
-export default Layot

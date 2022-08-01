@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react";
-import {Link} from 'react-router-dom';
 import * as MoviesService from 'Service/API'
 import { TrendingMoviesList,HeaderHome } from "./Home.styled";
 import { TrendingListItem } from "components/TrendingMoviesItemApp/TrendingMoviesItem";

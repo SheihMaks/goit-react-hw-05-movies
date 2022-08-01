@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ContainerMovie=styled.div`
 display:flex;
-justify-content:center;`
+justify-content:center;
+padding-top:10px;`
 
 export const PosterContainer=styled.div`
 `
