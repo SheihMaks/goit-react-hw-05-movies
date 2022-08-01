@@ -1,8 +1,8 @@
-import { TrendingItem } from "./TrendingMoviesItem.styled"
-import { Link } from "react-router-dom";
+import { TrendingItem,NavLinkStyled } from "./TrendingMoviesItem.styled"
+
 export const TrendingListItem=({movie,id})=>{
     return(
         <TrendingItem
-        id={id}><Link to={`/movies/${id}`}>{movie}</Link></TrendingItem>
+        id={id}><NavLinkStyled to={`/movies/${id}`}>{movie}</NavLinkStyled></TrendingItem>
     )
 }

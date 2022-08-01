@@ -25,7 +25,6 @@ getTrendingMovies()
 return(<><HeaderHome>Trending today</HeaderHome>
     <TrendingMoviesList>
 {trendingMovies.map(movie=> {
-    // console.log(movie)
     return (<TrendingListItem 
         key= {movie.id}
         id={movie.id}

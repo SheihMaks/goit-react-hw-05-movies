@@ -1,14 +1,14 @@
-import {NavLink,Outlet} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 
-import {InfoContainer,HeaderAdditionalInfo,LinkList,LinkItem,OutletContainer} from './AdditionalInfo.styled';
+import {InfoContainer,HeaderAdditionalInfo,LinkList,LinkItem,OutletContainer,NavLinkStyled} from './AdditionalInfo.styled';
 
 export const AdditionalInfo=({id})=>{
 
     return(<><InfoContainer>
         <HeaderAdditionalInfo>Additional Information</HeaderAdditionalInfo>
         <LinkList>
-        <LinkItem><NavLink to={`/movies/${id}/cast`}>Cast</NavLink></LinkItem>
-        <LinkItem><NavLink to={`/movies/${id}/reviews`}>Reviews</NavLink></LinkItem>
+        <LinkItem><NavLinkStyled to={`/movies/${id}/cast`}>Cast</NavLinkStyled></LinkItem>
+        <LinkItem><NavLinkStyled to={`/movies/${id}/reviews`}>Reviews</NavLinkStyled></LinkItem>
         </LinkList>
         </InfoContainer>
         <OutletContainer>
