@@ -1,17 +1,20 @@
 import { useState,useEffect } from "react";
-import * as MoviesService from 'components/Service/API'
-import { TrendingMoviesList,TrendingListItem } from "./Home.styled"
+import {Link} from 'react-router-dom';
+import * as MoviesService from 'Service/API'
+import { TrendingMoviesList,HeaderHome } from "./Home.styled";
+import { TrendingListItem } from "components/TrendingMoviesItemApp/TrendingMoviesItem";
 
-const Home=()=>{
+
+export const Home=()=>{
 
 const [trendingMovies,setTrendingMovies]=useState([])
 
 useEffect(()=> {
     const getTrendingMovies=async()=>{
     try{
-    const movies= await MoviesService.fetchTrendingMovies
+    const {results:movies}= await MoviesService.fetchTrendingMovies()
     setTrendingMovies([...movies])
-    console.log(movies)} catch {
+    } catch {
         console.log('error')
     }
     
@@ -19,15 +22,17 @@ useEffect(()=> {
 getTrendingMovies()
 },[])
 
-
-
-    return(<TrendingMoviesList>
+return(<><HeaderHome>Trending today</HeaderHome>
+    <TrendingMoviesList>
 {trendingMovies.map(movie=> {
-    return (<TrendingListItem key= {movie.id}>{movie.id}</TrendingListItem>)
+    // console.log(movie)
+    return (<TrendingListItem 
+        key= {movie.id}
+        id={movie.id}
+        movie={movie.title}/>)
     })}
     </TrendingMoviesList>
-        
+    </> 
     )
 }
 
-export default Home
