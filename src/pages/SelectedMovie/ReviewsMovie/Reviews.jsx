@@ -1,19 +1,28 @@
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as MoviesService from 'Service/API';
+import { getScroll } from "js/ScrollBy";
 import {ReviewsList,ReviewItem,AuthorReview,ReviewStyle,NotReviews} from './Reviews.styled';
+
 export const Reviews=()=>{
-const [reviews,setReviews]=useState([]);
-let {movieId}=useParams();
+
+    const [reviews,setReviews]=useState([]);
+
+    let {movieId}=useParams();
+
 useEffect(()=>{
 const getReviews=async(movieId)=>{
     try{
         const {results:reviews}= await MoviesService.fetchReviewMovie(movieId)
         setReviews([...reviews])
-    } catch {console.log('error')}}
-     getReviews(movieId)
+        getScroll()
+    } catch {console.log('error')}
+return ()=>setReviews([])}
+    getReviews(movieId)
 // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
+
+useEffect(()=>getScroll(),[reviews])
 
     return(<ReviewsList >
         {reviews.length !==0 ? 

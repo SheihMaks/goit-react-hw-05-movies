@@ -5,7 +5,7 @@ export const TrendingItem=styled.li`
 `
 
 export const NavLinkStyled=styled(NavLink)`
-display:block;
+display:inline-block;
 text-decoration:none;
 color:#44474a;
 font-weight:600;

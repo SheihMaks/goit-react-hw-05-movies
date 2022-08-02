@@ -12,6 +12,7 @@ export const PosterMovie=styled.img`
 `
 
 export const AboutMovie=styled.div`
+padding:0 10px;
 `
 
 export const TitleMovie=styled.h2`
