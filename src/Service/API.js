@@ -22,3 +22,8 @@ export const fetchReviewMovie=async(movieId)=>{
     const {data}= await axios.get(`/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`)
     return data
 }
+
+export const fetchSearchMovie=async(searchParams)=>{
+    const{data}=await axios.get(`/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=true&${searchParams}`)
+    return data
+}
