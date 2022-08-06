@@ -6,16 +6,19 @@ import * as MoviesService from 'Service/API';
 import {AdditionalInfo} from './AdditionalInfo/AdditionalInfo';
 import {GoBackLink} from 'components/GoBackLink/GoBackLink';
 import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popularity,HeaderAbout,Overview,GenresContainer,} from "./SelectedMovie.styled";
+
 export const SelectedMovie=()=>{
     let {movieId}=useParams();
     const[movie,setMovie]=useState({})
 
     useEffect(()=>{
         const getMovieById=async(movieId)=>{
-         try{
-       const movie= await MoviesService.fetchMovieById(movieId)
-       setMovie({...movie})
-        } catch {notifyError()}}
+        try{
+            const movie= await MoviesService.fetchMovieById(movieId)
+            setMovie({...movie})
+        } catch {
+            notifyError()}
+        }
      getMovieById(movieId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -30,7 +33,7 @@ const getGenres=(movie)=>{
     <GoBackLink/>
     <ContainerMovie>
         <PosterContainer>
-            <PosterMovie src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
+            {movie.poster_path && (<PosterMovie src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>)}
             </PosterContainer>
     <AboutMovie>
         <TitleMovie>{movie.title} ({new Date(movie.release_date).getFullYear()})</TitleMovie>
@@ -43,7 +46,6 @@ const getGenres=(movie)=>{
     </ContainerMovie>
         <AdditionalInfo
         id={movieId}
-        notifyError={notifyError}
         />
         <ToastContainer
         position="top-center"

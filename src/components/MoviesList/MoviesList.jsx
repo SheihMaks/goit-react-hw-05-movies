@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types'
 import {MoviesListStyled} from './MoviesList.styled';
-import { MoviesListItem } from "components/MoviesItem/MoviesItem";
+import { MoviesListItem } from "components/MoviesList/MoviesItem/MoviesItem";
 
 export const MoviesList=({movies})=>{
     
@@ -11,4 +12,8 @@ export const MoviesList=({movies})=>{
                 movie={movie.title}/>)
             })}
             </MoviesListStyled>)
+}
+
+MoviesList.propTypes={
+    movies:PropTypes.array.isRequired,
 }
