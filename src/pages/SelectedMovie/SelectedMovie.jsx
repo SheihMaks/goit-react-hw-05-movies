@@ -1,6 +1,7 @@
 
 import { useState,useEffect,} from "react";
 import {useParams } from "react-router-dom";
+import { ToastContainer, notifyError } from 'js/ToastNotify';
 import * as MoviesService from 'Service/API';
 import {AdditionalInfo} from './AdditionalInfo/AdditionalInfo';
 import {GoBackLink} from 'components/GoBackLink/GoBackLink';
@@ -14,7 +15,7 @@ export const SelectedMovie=()=>{
          try{
        const movie= await MoviesService.fetchMovieById(movieId)
        setMovie({...movie})
-        } catch {console.log('error')}}
+        } catch {notifyError()}}
      getMovieById(movieId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -38,7 +39,22 @@ const getGenres=(movie)=>{
         <Overview>{movie.overview}</Overview>
         <HeaderAbout>Genres</HeaderAbout>
         <GenresContainer>{ getGenres(movie)}</GenresContainer>
-        </AboutMovie></ContainerMovie>
-        <AdditionalInfo id={movieId}/>
+    </AboutMovie>
+    </ContainerMovie>
+        <AdditionalInfo
+        id={movieId}
+        notifyError={notifyError}
+        />
+        <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+    />  
     </>)
 }

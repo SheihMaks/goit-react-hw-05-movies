@@ -4,7 +4,7 @@ import * as MoviesService from 'Service/API';
 import { getScroll } from "js/ScrollBy";
 import {ReviewsList,ReviewItem,AuthorReview,ReviewStyle,NotReviews} from './Reviews.styled';
 
-export const Reviews=()=>{
+export const Reviews=({notifyError})=>{
 
     const [reviews,setReviews]=useState([]);
 
@@ -16,7 +16,7 @@ const getReviews=async(movieId)=>{
         const {results:reviews}= await MoviesService.fetchReviewMovie(movieId)
         setReviews([...reviews])
         getScroll()
-    } catch {console.log('error')}
+    } catch {notifyError()}
 return ()=>setReviews([])}
     getReviews(movieId)
 // eslint-disable-next-line react-hooks/exhaustive-deps

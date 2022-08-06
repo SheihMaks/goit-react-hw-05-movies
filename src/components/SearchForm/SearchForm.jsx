@@ -1,18 +1,20 @@
+
 import { SearchFormMovies,InputSearch, ButtonSearch  } from "./SearchForm.styled";
 
-
-export const SearchForm=({onSubmit,getQuery})=>{
+export const SearchForm=({onSubmit,getQuery,notify})=>{
 
     const onSubmitClick=(ev)=>{
     ev.preventDefault()
     const query=ev.currentTarget.elements['query'].value
     if (query.trim()==='')
-    { return} 
+    {notify();
+    return} 
     else 
     {onSubmit(query)}
     }
 
-    return(<SearchFormMovies 
+    return(
+    <SearchFormMovies 
         onSubmit={onSubmitClick}>
         <InputSearch  
         name="query"
@@ -20,8 +22,7 @@ export const SearchForm=({onSubmit,getQuery})=>{
         value={getQuery}
         placeholder="Enter something for search"
         autoFocus
-
         />
-        <ButtonSearch type='submit'>Search Movie</ButtonSearch>
-        </SearchFormMovies>)
+    <ButtonSearch type='submit'>Search Movie</ButtonSearch>
+    </SearchFormMovies>)
 }

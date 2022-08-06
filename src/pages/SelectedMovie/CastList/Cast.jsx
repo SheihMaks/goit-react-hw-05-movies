@@ -5,7 +5,7 @@ import { CastItemCard } from "components/CastItemCard/CastItemCard";
 import { CastList} from "./Cast.styled";
 import {getScroll}  from "js/ScrollBy";
 
-export const Cast=()=>{
+export const Cast=({notifyError})=>{
     const[credits,setCredits]=useState([])
 
     let {movieId}=useParams();
@@ -17,7 +17,7 @@ export const Cast=()=>{
             setCredits([...cast])
             
         }
-            catch {console.log('errror')}
+            catch {notifyError()}
             return ()=>{setCredits([])}
         }
         getCast(movieId)

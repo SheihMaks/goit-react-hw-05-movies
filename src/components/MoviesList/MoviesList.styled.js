@@ -1,4 +1,4 @@
 import styled from "styled-components";
 
-export const HeaderHome=styled.h1`
+export const MoviesListStyled=styled.ul`
 `

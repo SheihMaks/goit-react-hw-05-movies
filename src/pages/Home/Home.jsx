@@ -1,8 +1,9 @@
 import { useState,useEffect } from "react";
+import { ToastContainer, notifyError } from 'js/ToastNotify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as MoviesService from 'Service/API'
-import { TrendingMoviesList,HeaderHome } from "./Home.styled";
-import { TrendingListItem } from "components/TrendingMoviesItemApp/TrendingMoviesItem";
-
+import { HeaderHome } from "./Home.styled";
+import { MoviesList } from "components/MoviesList/MoviesList";
 
 export const Home=()=>{
 
@@ -14,23 +15,28 @@ useEffect(()=> {
     const {results:movies}= await MoviesService.fetchTrendingMovies()
     setTrendingMovies([...movies])
     } catch {
-        console.log('error')
+        notifyError()
     }
-    
 }
 getTrendingMovies()
 },[])
 
-return(<><HeaderHome>Trending today</HeaderHome>
-    <TrendingMoviesList>
-{trendingMovies.map(movie=> {
-    return (<TrendingListItem 
-        key= {movie.id}
-        id={movie.id}
-        movie={movie.title}/>)
-    })}
-    </TrendingMoviesList>
-    </> 
-    )
+return(<>
+    <HeaderHome>Trending today</HeaderHome>
+    <MoviesList
+    movies={trendingMovies}
+    />
+    <ToastContainer
+    position="top-center"
+    autoClose={1000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+/>
+    </>)
 }
 

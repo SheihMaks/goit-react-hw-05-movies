@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const TrendingItem=styled.li`
+export const MoviesItem=styled.li`
 `
 
 export const NavLinkStyled=styled(NavLink)`
