@@ -4,10 +4,8 @@ import { useParams,useLocation } from "react-router-dom";
 import { ToastContainer, notifyError } from 'js/ToastNotify';
 import * as MoviesService from 'Service/API';
 import {AdditionalInfo} from './AdditionalInfo/AdditionalInfo';
-// import {GoBackLink} from 'components/GoBackLink/GoBackLink';
+import {GoBackLink} from 'components/GoBackLink/GoBackLink';
 import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popularity,HeaderAbout,Overview,GenresContainer,} from "./SelectedMovie.styled";
-import { IoMdArrowRoundBack} from 'react-icons/io';
-import {NavLinkStyled,GoBackText} from 'components/GoBackLink/GoBackLink.styled';
 
 const SelectedMovie=()=>{
     let {movieId}=useParams();
@@ -15,7 +13,7 @@ const SelectedMovie=()=>{
     
     
     const backLink= useLocation().state?.from ?? "/"
-console.log(useLocation())
+console.log(backLink)
 
     useEffect(()=>{
         const getMovieById=async(movieId)=>{
@@ -36,7 +34,7 @@ const getGenres=(movie)=>{
  }
 
     return(<>
-    <NavLinkStyled to={backLink}><IoMdArrowRoundBack/><GoBackText>Go Back</GoBackText></NavLinkStyled>
+    <GoBackLink  backLink={backLink}/>
     <ContainerMovie>
         <PosterContainer>
             {movie.poster_path && (<PosterMovie src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>)}
