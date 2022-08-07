@@ -1,5 +1,5 @@
 
-import { useState,useEffect,useRef} from "react";
+import { useState,useEffect} from "react";
 import { useParams,useLocation } from "react-router-dom";
 import { ToastContainer, notifyError } from 'js/ToastNotify';
 import * as MoviesService from 'Service/API';
@@ -8,7 +8,6 @@ import {GoBackLink} from 'components/GoBackLink/GoBackLink';
 import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popularity,HeaderAbout,Overview,GenresContainer,} from "./SelectedMovie.styled";
 
 const SelectedMovie=()=>{
-    const isFirstRender=useRef(true)
     let {movieId}=useParams();
     const[movie,setMovie]=useState({})
     const backLink= useLocation().state?.from ?? "/";
@@ -48,7 +47,6 @@ const getGenres=(movie)=>{
     </ContainerMovie>
         <AdditionalInfo
         id={movieId}
-        isFirstRender={isFirstRender}
         />
         <ToastContainer
         position="top-center"
