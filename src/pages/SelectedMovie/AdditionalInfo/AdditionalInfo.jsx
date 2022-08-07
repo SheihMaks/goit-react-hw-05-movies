@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { Suspense } from 'react';
+import { Spinner } from 'Utils/Spinner/Spinner';
 import {Outlet} from 'react-router-dom';
 
 import {InfoContainer,HeaderAdditionalInfo,LinkList,LinkItem,OutletContainer,NavLinkStyled} from './AdditionalInfo.styled';
@@ -15,7 +17,9 @@ export const AdditionalInfo=({id})=>{
         </LinkList>
         </InfoContainer>
         <OutletContainer>
-            <Outlet/>
+        <Suspense fallback={<Spinner/>}>
+        <Outlet/>
+        </Suspense>
         </OutletContainer></>)
 }
 

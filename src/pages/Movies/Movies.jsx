@@ -1,13 +1,14 @@
 import {useState, useEffect} from 'react';
+import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { ToastContainer, notifyNoResults,notifyWarn,notifyError } from 'js/ToastNotify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import * as MoviesService from 'Service/API';
 import { SearchForm } from "components/SearchForm/SearchForm"; 
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
-export const Movies=()=>{
-    
+const Movies=()=>{
     const [searchedFilms,setSearchedFilms]=useState([])
     const[searchParams,setSearchParams]=useSearchParams()
     
@@ -54,3 +55,5 @@ export const Movies=()=>{
     pauseOnHover
 /></>)
 }
+
+export default Movies

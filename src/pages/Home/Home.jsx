@@ -1,11 +1,12 @@
+
 import { useState,useEffect } from "react";
-import { ToastContainer, notifyError } from 'js/ToastNotify';
+import { notifyError } from 'js/ToastNotify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as MoviesService from 'Service/API'
 import { HeaderHome } from "./Home.styled";
 import { MoviesList } from "components/MoviesList/MoviesList";
 
-export const Home=()=>{
+const Home=()=>{
 
 const [trendingMovies,setTrendingMovies]=useState([])
 
@@ -26,17 +27,7 @@ return(<>
     <MoviesList
     movies={trendingMovies}
     />
-    <ToastContainer
-    position="top-center"
-    autoClose={1000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-/>
     </>)
 }
 
+export default Home

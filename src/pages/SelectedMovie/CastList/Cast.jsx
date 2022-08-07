@@ -6,7 +6,7 @@ import { CastItemCard } from "components/CastItemCard/CastItemCard";
 import { CastList} from "./Cast.styled";
 import {getScroll}  from "js/ScrollBy";
 
-export const Cast=()=>{
+const Cast=()=>{
     const[credits,setCredits]=useState([])
 
     let {movieId}=useParams();
@@ -39,3 +39,4 @@ export const Cast=()=>{
         </CastList>)
 }
 
+export default Cast

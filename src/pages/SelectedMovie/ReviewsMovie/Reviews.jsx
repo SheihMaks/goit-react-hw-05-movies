@@ -5,7 +5,7 @@ import * as MoviesService from 'Service/API';
 import { getScroll } from "js/ScrollBy";
 import {ReviewsList,ReviewItem,AuthorReview,ReviewStyle,NotReviews} from './Reviews.styled';
 
-export const Reviews=()=>{
+const Reviews=()=>{
 
     const [reviews,setReviews]=useState([]);
 
@@ -37,3 +37,5 @@ useEffect(()=>getScroll(),[reviews])
         :<NotReviews>We don`t have any reviews for this video.</NotReviews>}
     </ReviewsList>)
 }
+
+export default Reviews

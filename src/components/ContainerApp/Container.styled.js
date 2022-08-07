@@ -8,5 +8,7 @@ max-width:100%;
 
 export const Container=styled.div`
 width:100%;
-padding:10px 10px;
+height:auto;
+padding:10px 20px;
+padding-bottom:60px;
 `

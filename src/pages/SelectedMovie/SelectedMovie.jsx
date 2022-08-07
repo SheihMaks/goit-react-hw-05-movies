@@ -7,7 +7,7 @@ import {AdditionalInfo} from './AdditionalInfo/AdditionalInfo';
 import {GoBackLink} from 'components/GoBackLink/GoBackLink';
 import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popularity,HeaderAbout,Overview,GenresContainer,} from "./SelectedMovie.styled";
 
-export const SelectedMovie=()=>{
+const SelectedMovie=()=>{
     let {movieId}=useParams();
     const[movie,setMovie]=useState({})
 
@@ -60,3 +60,5 @@ const getGenres=(movie)=>{
     />  
     </>)
 }
+
+export default SelectedMovie
