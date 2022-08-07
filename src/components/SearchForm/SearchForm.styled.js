@@ -10,7 +10,7 @@ export const InputSearch=styled.input`
 padding:4px;
 border-radius:4px;
 margin-right:4px;
-background-color:#d9f0ff;
+background-color:#e1e4fa;
 `
 
 export const ButtonSearch=styled.button`

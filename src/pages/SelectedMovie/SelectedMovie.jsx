@@ -1,15 +1,21 @@
 
 import { useState,useEffect,} from "react";
-import {useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import { ToastContainer, notifyError } from 'js/ToastNotify';
 import * as MoviesService from 'Service/API';
 import {AdditionalInfo} from './AdditionalInfo/AdditionalInfo';
-import {GoBackLink} from 'components/GoBackLink/GoBackLink';
+// import {GoBackLink} from 'components/GoBackLink/GoBackLink';
 import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popularity,HeaderAbout,Overview,GenresContainer,} from "./SelectedMovie.styled";
+import { IoMdArrowRoundBack} from 'react-icons/io';
+import {NavLinkStyled,GoBackText} from 'components/GoBackLink/GoBackLink.styled';
 
 const SelectedMovie=()=>{
     let {movieId}=useParams();
     const[movie,setMovie]=useState({})
+    
+    
+    const backLink= useLocation().state?.from ?? "/"
+console.log(useLocation())
 
     useEffect(()=>{
         const getMovieById=async(movieId)=>{
@@ -20,8 +26,8 @@ const SelectedMovie=()=>{
             notifyError()}
         }
      getMovieById(movieId)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    
+    },[movieId])
 
 const getGenres=(movie)=>{
     if (!movie.genres)return;
@@ -30,7 +36,7 @@ const getGenres=(movie)=>{
  }
 
     return(<>
-    <GoBackLink/>
+    <NavLinkStyled to={backLink}><IoMdArrowRoundBack/><GoBackText>Go Back</GoBackText></NavLinkStyled>
     <ContainerMovie>
         <PosterContainer>
             {movie.poster_path && (<PosterMovie src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>)}

@@ -10,6 +10,8 @@ const Home=()=>{
 
 const [trendingMovies,setTrendingMovies]=useState([])
 
+
+
 useEffect(()=> {
     const getTrendingMovies=async()=>{
     try{

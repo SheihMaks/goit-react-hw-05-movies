@@ -9,6 +9,6 @@ max-width:100%;
 export const Container=styled.div`
 width:100%;
 height:auto;
-padding:10px 20px;
+padding:10px 40px;
 padding-bottom:60px;
 `

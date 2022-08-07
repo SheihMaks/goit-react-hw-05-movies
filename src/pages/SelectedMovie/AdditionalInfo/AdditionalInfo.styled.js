@@ -7,13 +7,16 @@ border-bottom: solid 3px #d1cfcf;
 `
 
 export const HeaderAdditionalInfo=styled.h4`
-margin:10px 0;
+margin:5px 0;
 `
 
 export const LinkList=styled.ul`
+display:flex;
+margin-right:-10px;
 `
 
 export const LinkItem=styled.li`
+margin-right:10px;
 `
 
 export const OutletContainer=styled.div`
