@@ -6,7 +6,6 @@ import { getScroll } from "js/ScrollBy";
 import {ReviewsList,ReviewItem,AuthorReview,ReviewStyle,NotReviews} from './Reviews.styled';
 
 const Reviews=()=>{
-
     const [reviews,setReviews]=useState([]);
 
     let {movieId}=useParams();

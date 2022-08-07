@@ -9,9 +9,9 @@ const Movies=lazy(()=>import("pages/Movies/Movies"));
 const SelectedMovie=lazy(()=>import("pages/SelectedMovie/SelectedMovie"));
 const Reviews=lazy(()=>import("pages/SelectedMovie/ReviewsMovie/Reviews"));
 const Cast=lazy(()=>import("pages/SelectedMovie/CastList/Cast"));
+const NotFound=lazy(()=>import ("pages/NotFound/NotFound"))
 
 export const App = () => {
-  
 return (<>
       <Suspense fallback={<Spinner/>}>
         <Routes>
@@ -23,6 +23,7 @@ return (<>
               <Route path="reviews" element={<Reviews/>}/>
               </Route>
           </Route>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Suspense>
       <ToastContainer

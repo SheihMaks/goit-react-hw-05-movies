@@ -6,7 +6,8 @@ import { CastItemCard } from "components/CastItemCard/CastItemCard";
 import { CastList} from "./Cast.styled";
 import {getScroll}  from "js/ScrollBy";
 
-const Cast=()=>{
+const Cast=({isFirstRender})=>{
+    
     const[credits,setCredits]=useState([])
 
     let {movieId}=useParams();
@@ -25,6 +26,7 @@ const Cast=()=>{
         },[movieId])
 
         useEffect(()=>getScroll(),[credits])
+        
     return(<CastList>
         {credits.map(actor=>{
             const{profile_path,name,character,id}=actor;
