@@ -20,8 +20,7 @@ const getReviews=async(movieId)=>{
     } catch {notifyError()}
 return ()=>setReviews([])}
     getReviews(movieId)
-// eslint-disable-next-line react-hooks/exhaustive-deps
-},[])
+},[movieId])
 
 useEffect(()=>getScroll(),[reviews])
 

@@ -10,10 +10,7 @@ import { ContainerMovie,PosterContainer,PosterMovie,AboutMovie,TitleMovie,Popula
 const SelectedMovie=()=>{
     let {movieId}=useParams();
     const[movie,setMovie]=useState({})
-    
-    
-    const backLink= useLocation().state?.from ?? "/"
-console.log(backLink)
+    const backLink= useLocation().state?.from ?? "/";
 
     useEffect(()=>{
         const getMovieById=async(movieId)=>{
@@ -41,7 +38,7 @@ const getGenres=(movie)=>{
             </PosterContainer>
     <AboutMovie>
         <TitleMovie>{movie.title} ({new Date(movie.release_date).getFullYear()})</TitleMovie>
-        <Popularity>User Score: {movie.vote_average*10}%</Popularity>
+        <Popularity>User Score: {movie.vote_average}</Popularity>
         <HeaderAbout>Overview</HeaderAbout>
         <Overview>{movie.overview}</Overview>
         <HeaderAbout>Genres</HeaderAbout>

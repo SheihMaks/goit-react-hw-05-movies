@@ -3,7 +3,7 @@ import { Routes, Route,} from "react-router-dom";
 import { Spinner } from "Utils/Spinner/Spinner";
 import { ToastContainer } from 'js/ToastNotify';
 import Layout from "LayoutApp/Layout";
-// const Layout=lazy(() => import ("LayoutApp/Layout"));
+
 const  Home=lazy(()=>import("pages/Home/Home"));
 const Movies=lazy(()=>import("pages/Movies/Movies"));
 const SelectedMovie=lazy(()=>import("pages/SelectedMovie/SelectedMovie"));

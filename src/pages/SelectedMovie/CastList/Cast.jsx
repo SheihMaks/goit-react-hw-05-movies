@@ -22,8 +22,7 @@ const Cast=()=>{
             return ()=>{setCredits([])}
         }
         getCast(movieId)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-        },[])
+        },[movieId])
 
         useEffect(()=>getScroll(),[credits])
     return(<CastList>
