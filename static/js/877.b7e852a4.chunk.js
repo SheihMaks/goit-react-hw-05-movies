@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_05_movies=self.webpackChunkgoit_react_hw_05_movies||[]).push([[877],{6877:function(n,e,t){t.r(e),t.d(e,{default:function(){return f}});var i,r,c=t(168),o=t(6031),u=o.ZP.div(i||(i=(0,c.Z)(["\ntext-align:center;"]))),s=o.ZP.p(r||(r=(0,c.Z)(["\npadding:20%;\nfont-size:36px;\nfont-weight:600;"]))),a=t(184),f=function(){return(0,a.jsx)(u,{children:(0,a.jsx)(s,{children:"Page not found"})})}}}]);
+//# sourceMappingURL=877.b7e852a4.chunk.js.map
